@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">FTAProject</string>
+    <string name="welcomepage">FIND THEM ALL</string>
+    <string name="onglet_camera">Appareil photo</string>
+    <string name="onglet_people">Utilisateurs</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

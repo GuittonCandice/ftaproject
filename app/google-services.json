@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "492094712986",
+    "project_id": "firebase-ftaproject"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:492094712986:android:7b73155a38a216dd",
+        "android_client_info": {
+          "package_name": "com.esgi.guitton.candice.ftaproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "492094712986-ogciunu72pm8bae39fgvltckd9bd5rgb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.esgi.guitton.candice.ftaproject",
+            "certificate_hash": "e7f1515dcc2cc27a8c5135ba1d899d556058b244"
+          }
+        },
+        {
+          "client_id": "492094712986-4tm8505od2rsbm9q6jm2erqo8q2j7unr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCP3ZDwpZpwvn19clbMq2AG4QsbHjYZcls"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
