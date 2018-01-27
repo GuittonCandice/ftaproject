@@ -1,15 +1,18 @@
 package com.esgi.guitton.candice.ftaproject;
 
 import android.support.annotation.NonNull;
-import android.support.design.internal.BottomNavigationMenu;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
+
+import com.esgi.guitton.candice.ftaproject.fragments.FriendsFragment;
+import com.esgi.guitton.candice.ftaproject.fragments.InventoryFragment;
+import com.esgi.guitton.candice.ftaproject.fragments.QrCodeFragment;
 
 public class MainActivity extends AppCompatActivity {
-    BottomNavigationView bottom_navigation_menu;
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,26 +20,33 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                FragmentManager fragmentManager = getSupportFragmentManager();
 
                 switch (item.getItemId()) {
 
-                    case R.id.onglet_1:
-                    return true;
-                    case R.id.onglet_2:
-                        //Action quand onglet 2 sélectionné
+                    case R.id.inventory:
+                        InventoryFragment inventoryFragment = new InventoryFragment();
+                        fragmentManager.beginTransaction().replace(R.id.fragment_container, inventoryFragment).commit();
+                    case R.id.camera:
+                        QrCodeFragment qrCodeFragment = new QrCodeFragment();
+                        fragmentManager.beginTransaction().replace(R.id.fragment_container, qrCodeFragment).commit();
+                        break;
+                    case R.id.friends:
+                        FriendsFragment friendsFragment = new FriendsFragment();
+                        fragmentManager.beginTransaction().replace(R.id.fragment_container, friendsFragment).commit();
                         break;
 
                     default:
-                        //Action quand onglet 3 sélectionné
-
                         break;
                 }
                 return false;
-            };
+            }
+
+            ;
 
         });
     }

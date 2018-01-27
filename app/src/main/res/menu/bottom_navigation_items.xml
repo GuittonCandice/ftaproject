@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-    <menu xmlns:android="http://schemas.android.com/apk/res/android">
-        <item android:id="@+id/onglet_1" android:icon="@drawable/camera" android:title="@string/onglet_camera"/>
-        <item android:id="@+id/onglet_2" android:icon="@drawable/people" android:title="@string/onglet_people"/>
-        <item android:id="@+id/onglet_3" android:icon="@drawable/people" android:title="@string/onglet_people"/>
-    </menu>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/inventory"
+        android:icon="@drawable/ic_inventory"
+        android:title="@string/inventory" />
+    <item
+        android:id="@+id/camera"
+        android:icon="@drawable/ic_photo"
+        android:title="@string/onglet_camera" />
+    <item
+        android:id="@+id/friends"
+        android:icon="@drawable/ic_user"
+        android:title="@string/onglet_people" />
+</menu>
