@@ -5,10 +5,30 @@
     tools:context="com.esgi.guitton.candice.ftaproject.fragments.InventoryFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-        android:background="@color/colorPrimary"/>
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/titlefragmentinventory"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@string/inventory"
+            style="@style/TitleFragment"
+            android:padding="10dp"
+            />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/titlefragmentinventory">>
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+            </ListView>
+        </ScrollView>
+
+    </RelativeLayout>
 
 </FrameLayout>

@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.inventory:
                         InventoryFragment inventoryFragment = new InventoryFragment();
                         fragmentManager.beginTransaction().replace(R.id.fragment_container, inventoryFragment).commit();
+                        break;
                     case R.id.camera:
                         QrCodeFragment qrCodeFragment = new QrCodeFragment();
                         fragmentManager.beginTransaction().replace(R.id.fragment_container, qrCodeFragment).commit();
