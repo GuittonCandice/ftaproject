@@ -4,13 +4,32 @@
     android:layout_height="match_parent"
     tools:context="com.esgi.guitton.candice.ftaproject.fragments.FriendsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="@string/friends"
-        style="@style/TitleFragment"
-        android:padding="10dp"
-        />
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/titlefragmentfriend"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@string/friends"
+            style="@style/TitleFragment"
+            android:padding="10dp"
+            />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/titlefragmentfriend">>
+            <ListView
+                android:id="@+id/list_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+            </ListView>
+        </ScrollView>
+
+    </RelativeLayout>
 
 </FrameLayout>
