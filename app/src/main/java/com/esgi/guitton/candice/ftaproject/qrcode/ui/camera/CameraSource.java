@@ -1167,7 +1167,7 @@ public class CameraSource {
                     }
 
                     outputFrame = new Frame.Builder()
-                            .setImageData(ByteBuffer.allocateDirect(mPendingFrameData.capacity()), mPreviewSize.getWidth(),
+                            .setImageData(mPendingFrameData, mPreviewSize.getWidth(),
                                     mPreviewSize.getHeight(), ImageFormat.NV21)
                             .setId(mPendingFrameId)
                             .setTimestampMillis(mPendingTimeMillis)
