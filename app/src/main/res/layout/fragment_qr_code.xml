@@ -12,17 +12,17 @@
         android:text="@string/camera"
         style="@style/TitleFragment"
         android:padding="10dp"
-        />
+        android:id="@+id/textView" />
 
     <TextView
+        android:id="@+id/status_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView"
         android:text=""
-        android:id="@+id/status_message"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true" />
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -32,20 +32,30 @@
         android:layout_below="@+id/status_message"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="5dp"
         android:layout_alignRight="@+id/status_message"
         android:layout_alignEnd="@+id/status_message" />
 
+    <ImageView
+        android:id="@+id/imgview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/auto_focus"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/barcode_value" />
+
     <CheckBox
+        android:id="@+id/use_flash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="flash"
-        android:id="@+id/use_flash"
-        android:layout_alignTop="@+id/auto_focus"
-        android:layout_alignParentRight="true"
+        android:layout_alignBaseline="@+id/auto_focus"
+        android:layout_alignBottom="@+id/auto_focus"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:checked="false"
-        android:padding="10dp" />
+        android:padding="10dp"
+        android:text="flash" />
 
     <Button
         android:id="@+id/read_barcode"
@@ -59,12 +69,12 @@
         android:id="@+id/auto_focus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/read_barcode"
+        android:layout_alignBottom="@+id/read_barcode"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/barcode_value"
-        android:layout_marginTop="66dp"
         android:checked="false"
-        android:text="auto focus"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:text="auto focus" />
 
 </RelativeLayout>
