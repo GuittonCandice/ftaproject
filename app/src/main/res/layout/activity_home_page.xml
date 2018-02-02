@@ -13,46 +13,25 @@
 
         <TextView
             android:id="@+id/titlefragmentinventory"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:text="@string/findthemall"
-            style="@style/TitleHomePage" />
+            android:padding="100dp"
+            style="@style/TitleFragment"
+            />
 
-        <LinearLayout
+        <EditText
+            android:id="@+id/edit_login"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_below="@id/titlefragmentinventory"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="100dp"
-            >
-
-            <EditText
-                android:id="@+id/edit_login"
-                android:layout_width="150dp"
-                android:layout_height="40dp"
-                android:layout_below="@+id/titlefragmentinventory"
-                android:layout_centerHorizontal="true"
-                android:hint="@string/login" />
-
-            <EditText
-                android:id="@+id/edit_password"
-                android:layout_width="150dp"
-                android:layout_height="40dp"
-                android:layout_below="@+id/edit_login"
-                android:layout_centerHorizontal="true"
-                android:hint="@string/password" />
-
-            <Button
-                android:id="@+id/connexion_button"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:text="@string/connect"
-                android:layout_below="@+id/edit_password"
-                android:layout_centerHorizontal="true" />
-        </LinearLayout>
-
+            android:layout_height="30dp"
+            android:hint="@string/login"
+            
+            />
+        <EditText
+            android:id="@+id/edit_password"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:hint="@string/password"/>
     </RelativeLayout>
 
 

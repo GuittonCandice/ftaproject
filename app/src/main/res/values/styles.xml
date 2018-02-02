@@ -17,20 +17,5 @@
 
     </style>
 
-    <style name="TitleHomePage" parent="@android:style/Widget.TextView">
-        <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textSize">50dp</item>
-        <item name="android:fontFamily">@font/bungeeinlineregular</item>
-        <item name="android:background">@color/TitleBackgroundColor</item>
-    </style>
-
-
-    <style name="buttonConnect">
-        <item name="android:textColor">#555</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:background">@color/lightPink</item>
-        <item name="android:radius">5dp</item>
-    </style>
     <dimen name="text_medium">14dp</dimen>
 </resources>
