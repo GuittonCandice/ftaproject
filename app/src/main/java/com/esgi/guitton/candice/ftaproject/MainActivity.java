@@ -1,5 +1,6 @@
 package com.esgi.guitton.candice.ftaproject;
 
+import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
@@ -10,6 +11,9 @@ import android.view.MenuItem;
 import com.esgi.guitton.candice.ftaproject.fragments.FriendsFragment;
 import com.esgi.guitton.candice.ftaproject.fragments.InventoryFragment;
 import com.esgi.guitton.candice.ftaproject.fragments.QrCodeFragment;
+
+import net.glxn.qrgen.android.QRCode;
+import net.glxn.qrgen.core.scheme.VCard;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
