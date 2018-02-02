@@ -14,4 +14,6 @@
     <string name="findthemall">Find them all</string>
     <string name="login">Identifiant</string>
     <string name="password">mot de passe</string>
+    <string name="connect">Se connecter</string>
+    <string name="server_client_id">492094712986-4tm8505od2rsbm9q6jm2erqo8q2j7unr.apps.googleusercontent.com</string>
 </resources>
