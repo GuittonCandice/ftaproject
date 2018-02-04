@@ -1,11 +1,13 @@
 package com.esgi.guitton.candice.ftaproject.fragments;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +23,8 @@ import com.google.android.gms.vision.barcode.Barcode;
 
 import net.glxn.qrgen.android.QRCode;
 import net.glxn.qrgen.core.scheme.VCard;
+
+import java.util.ArrayList;
 
 
 public class QrCodeFragment extends Fragment implements View.OnClickListener {
@@ -47,6 +51,9 @@ public class QrCodeFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
     }
 
     @Override
@@ -55,13 +62,11 @@ public class QrCodeFragment extends Fragment implements View.OnClickListener {
 
         statusMessage = view.findViewById(R.id.status_message);
         barcodeValue = view.findViewById(R.id.barcode_value);
-
         myImageView = (ImageView) view.findViewById(R.id.imgview);
-
         autoFocus = view.findViewById(R.id.auto_focus);
         useFlash = view.findViewById(R.id.use_flash);
 
-        view.findViewById(R.id.read_barcode).setOnClickListener(this);
+
 
         return view;
     }

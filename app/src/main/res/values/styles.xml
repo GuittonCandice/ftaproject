@@ -10,7 +10,7 @@
     </style>
 
     <style name="TitleFragment" parent="@android:style/Widget.TextView">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/colorPrimary</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">30dp</item>
         <item name="android:background">@color/TitleBackgroundColor</item>
@@ -18,9 +18,8 @@
     </style>
 
     <style name="TitleHomePage" parent="@android:style/Widget.TextView">
-        <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textSize">50dp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">35dp</item>
         <item name="android:fontFamily">@font/bungeeinlineregular</item>
         <item name="android:background">@color/TitleBackgroundColor</item>
     </style>

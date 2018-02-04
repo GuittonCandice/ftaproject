@@ -13,42 +13,40 @@ import com.esgi.guitton.candice.ftaproject.Item;
 import com.esgi.guitton.candice.ftaproject.MainActivity;
 import com.esgi.guitton.candice.ftaproject.R;
 import com.esgi.guitton.candice.ftaproject.User;
+import com.esgi.guitton.candice.ftaproject.cache.DataBaseHelper;
+
+import java.util.ArrayList;
 
 
 public class InventoryFragment extends Fragment {
+
     ListView listItem;
-    User user; // get connected user by sharedpreferences
-    Item[] items = user.getItems();
+    ArrayList<Item> items;
+
+
     public InventoryFragment() {
     }
 
-
-    public static InventoryFragment newInstance(String param1, String param2) {
-        InventoryFragment fragment = new InventoryFragment();
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        listItem = getActivity().findViewById(R.id.list_item);
-
-        final ArrayAdapter<Item> itemAdapter = new ArrayAdapter<Item>(getActivity(),
-                android.R.layout.simple_list_item_1, items);
-        listItem.setAdapter(itemAdapter);
-
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_inventory, container, false);
-    }
+        View view = inflater.inflate(R.layout.fragment_inventory, container, false);
 
+
+        DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext(), DataBaseHelper.DATABASE_NAME, DataBaseHelper.VERSION);
+
+        items = dataBaseHelper.getItems();
+
+        listItem = view.findViewById(R.id.list_item);
+
+        final ArrayAdapter<Item> itemAdapter = new ArrayAdapter<Item>(getContext(), android.R.layout.simple_list_item_1, items);
+        listItem.setAdapter(itemAdapter);
+
+        return view;
+    }
 
 
     @Override

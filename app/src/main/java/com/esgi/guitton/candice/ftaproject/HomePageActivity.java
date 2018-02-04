@@ -1,6 +1,8 @@
 package com.esgi.guitton.candice.ftaproject;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +17,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+
+import java.util.Map;
+import java.util.Set;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -39,6 +44,8 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
       //  edit_password = findViewById(R.id.edit_password);
 
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+
+
 
         if (account != null){
             System.out.println("account :"+ account.getDisplayName());
@@ -91,9 +98,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
-    /*@OnClick(R.id.connexion_button)
-    public void onConnexionButton(){
-    }*/
+
 
     @Override
     public void onClick(View v) {
