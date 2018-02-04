@@ -13,6 +13,7 @@ import com.esgi.guitton.candice.ftaproject.Item;
 import com.esgi.guitton.candice.ftaproject.MainActivity;
 import com.esgi.guitton.candice.ftaproject.R;
 import com.esgi.guitton.candice.ftaproject.User;
+import com.esgi.guitton.candice.ftaproject.adapter.ItemAdapter;
 import com.esgi.guitton.candice.ftaproject.cache.DataBaseHelper;
 
 import java.util.ArrayList;
@@ -42,9 +43,11 @@ public class InventoryFragment extends Fragment {
 
         listItem = view.findViewById(R.id.list_item);
 
-        final ArrayAdapter<Item> itemAdapter = new ArrayAdapter<Item>(getContext(), android.R.layout.simple_list_item_1, items);
-        listItem.setAdapter(itemAdapter);
+        //Création et initialisation de l'Adapter pour les personnes
+        ItemAdapter itemAdapter = new ItemAdapter(items, getContext());
 
+        //Initialisation de la liste avec les données
+        listItem.setAdapter(itemAdapter);
         return view;
     }
 

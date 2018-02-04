@@ -5,14 +5,8 @@
     android:layout_height="match_parent"
     android:padding="10dp">
 
-    <ImageView
-        android:id="@+id/item_avatar"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        tools:background="#333" />
-
     <TextView
-        android:id="@+id/item_name"
+        android:id="@+id/friend_lastname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/item_avatar"
@@ -21,14 +15,14 @@
         android:textColor="@android:color/black"
         android:textStyle="bold"
         />
-
     <TextView
-        android:id="@+id/item_text"
+        android:id="@+id/friend_firstname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/item_name"
-        android:layout_below="@+id/item_name"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/friend_lastname"
         android:textColor="@android:color/black"
+        android:textStyle="bold"
         />
 
 </RelativeLayout>
