@@ -18,4 +18,5 @@
     <string name="server_client_id">492094712986-4tm8505od2rsbm9q6jm2erqo8q2j7unr.apps.googleusercontent.com</string>
     <string name="googleconnect">S\'authentifier avec Google</string>
     <string name="select_options">Selectionner les options</string>
+    <string name="user_profile">Profil Utilisateur</string>
 </resources>

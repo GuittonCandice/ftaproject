@@ -7,18 +7,34 @@ import java.util.Arrays;
  */
 
 public class User {
+
+    public static final String TABLE_NAME = "user";
+    public static final String COL_ID = "id";
+    public static final String COL_LASTNAME = "lastname";
+    public static final String COL_FIRSTNAME = "firstname";
+    public static final String COL_EMAIL = "email";
+    public static final String COL_ID_USER = "id_user";
+
+
+
     private String firstname;
     private String lastname;
     private String email;
-    private String avatarPath;
-    private Item[] items;
+    private String user_id;
 
-    public User(String firstname, String lastname, String email, String avatarPath, Item[] items) {
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
+    }
+
+    public User(String firstname, String lastname, String email, String user_id) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
-        this.avatarPath = avatarPath;
-        this.items = items;
+        this.user_id = user_id;
     }
 
     public String getFirstname() {
@@ -45,21 +61,6 @@ public class User {
         this.email = email;
     }
 
-    public String getAvatarPath() {
-        return avatarPath;
-    }
-
-    public void setAvatarPath(String avatarPath) {
-        this.avatarPath = avatarPath;
-    }
-
-    public Item[] getItems() {
-        return items;
-    }
-
-    public void setItems(Item[] items) {
-        this.items = items;
-    }
 
     @Override
     public String toString() {
@@ -67,8 +68,7 @@ public class User {
                 "firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", email='" + email + '\'' +
-                ", avatarPath='" + avatarPath + '\'' +
-                ", items=" + Arrays.toString(items) +
+                ", user_id='" + user_id + '\'' +
                 '}';
     }
 }

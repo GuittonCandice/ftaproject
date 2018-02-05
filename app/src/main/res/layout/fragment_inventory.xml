@@ -18,6 +18,14 @@
             style="@style/TitleFragment"
             android:padding="10dp"
             />
+
+        <ImageButton
+            android:id="@+id/user_profile_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_user"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"/>
         <ListView
             android:id="@+id/list_item"
             android:layout_width="wrap_content"

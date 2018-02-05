@@ -123,7 +123,16 @@ public class MainActivity extends AppCompatActivity {
                     Barcode.ContactInfo contact = barcode.contactInfo;
 
                     if (contact != null) {
+                        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+                        if(account != null) {
 
+                            User user = new User(contact.name.first, contact.name.last, contact.emails[0].address,account.getId());
+                            DataBaseHelper dataBaseHelper = new DataBaseHelper(this, DataBaseHelper.DATABASE_NAME, DataBaseHelper.VERSION);
+                            dataBaseHelper.addFriend(user);
+
+                            friendFragment(getSupportFragmentManager());
+
+                        }
                         //statusMessage.setText("Nouvel utilisateur trouvé !");
                         /*barcodeValue.setText(contact.name.first+" "+contact.name.last+"\n"+contact.emails[0].address+"\n" +
                                 contact.addresses[0].addressLines[0]+"\n"+contact.title+"\n"+contact.organization+"\n"+
@@ -154,9 +163,6 @@ public class MainActivity extends AppCompatActivity {
                             dataBaseHelper.addItem(item);
 
                             inventoryFragment(getSupportFragmentManager());
-                            // statusMessage.setText("Nouvel objet trouvé !");
-                            // barcodeValue.setText(barcode.rawValue);
-                            // Log.d(TAG, "The barcode is a new object");
                         }
                     }
                 } else {
