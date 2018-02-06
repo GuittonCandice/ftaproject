@@ -7,8 +7,15 @@ import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.esgi.guitton.candice.ftaproject.HomePageActivity;
 import com.esgi.guitton.candice.ftaproject.Item;
+import com.esgi.guitton.candice.ftaproject.MainActivity;
 import com.esgi.guitton.candice.ftaproject.User;
+import com.esgi.guitton.candice.ftaproject.fragments.InventoryFragment;
+import com.google.android.gms.auth.GoogleAuthUtil;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 
 import java.util.ArrayList;
 
@@ -34,7 +41,12 @@ public class DataBaseHelper extends SQLiteOpenHelper{
                     + User.COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                     + User.COL_LASTNAME + " VARCHAR, "
                     + User.COL_FIRSTNAME + " VARCHAR,"
+                    + User.COL_EMAIL + " VARCHAR,"
                     + User.COL_ID_USER + " VARCHAR)";
+    private static final String GET_LAST_ITEM = " SELECT id, name, path, id_user " +
+            "FROM "+ Item.TABLE_NAME +
+            " WHERE " +Item.COL_ID + " = (SELECT max(id) FROM "+ Item.TABLE_NAME+ ")" ;
+
 
     public DataBaseHelper(Context context, String name, int version) {
         super(context, name, null, version);
@@ -117,11 +129,11 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         if(!checkUser(user)) {
             SQLiteDatabase writableDatabase = getWritableDatabase();
             final ContentValues row = new ContentValues();
-            row.put(User.COL_FIRSTNAME,user.getFirstname());
             row.put(User.COL_LASTNAME,user.getLastname());
-            row.put(User.COL_ID_USER, user.getUser_id());
+            row.put(User.COL_FIRSTNAME,user.getFirstname());
             row.put(User.COL_EMAIL, user.getEmail());
-            writableDatabase.insert(Item.TABLE_NAME, null, row);
+            row.put(User.COL_ID_USER, user.getUser_id());
+            writableDatabase.insert(User.TABLE_NAME, null, row);
             writableDatabase.close();
 
         }
@@ -155,11 +167,11 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 
         if(cursor.moveToFirst()) {
             do {
-                String firstname = cursor.getString(1);
-                String lastname = cursor.getString(2);
+                String lastname = cursor.getString(1);
+                String firstname = cursor.getString(2);
                 String email = cursor.getString(3);
                 String id_user = cursor.getString(4);
-                User user = new User(firstname, lastname, email, id_user);
+                User user = new User(lastname, firstname, email, id_user);
                 users.add(user);
             }while(cursor.moveToNext());
         }
@@ -167,6 +179,26 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         cursor.close();
         readableDatabase.close();
         return users;
+    }
+
+    public Item getLastItem()
+    {   Item item = null;
+        SQLiteDatabase readableDatabase = getReadableDatabase();
+        Cursor cursor = readableDatabase.rawQuery(GET_LAST_ITEM, null);
+
+        if(cursor.moveToFirst()) {
+            do {
+                String id = cursor.getString(0);
+                String name = cursor.getString(1);
+                String path = cursor.getString(2);
+                String id_user = cursor.getString(3);
+                item = new Item(name, path, id_user);
+            }while(cursor.moveToNext());
+        }
+
+        cursor.close();
+        readableDatabase.close();
+        return item;
     }
 
 }

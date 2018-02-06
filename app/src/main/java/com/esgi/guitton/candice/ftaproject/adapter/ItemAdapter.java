@@ -1,6 +1,7 @@
 package com.esgi.guitton.candice.ftaproject.adapter;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.esgi.guitton.candice.ftaproject.Item;
@@ -54,24 +56,31 @@ public class ItemAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        LinearLayout layoutItem;
-        //(1) : Réutilisation des layouts
+        RelativeLayout layoutItem;
         if (convertView == null) {
-            //Initialisation de notre item à partir du  layout XML "personne_layout.xml"
-            layoutItem = (LinearLayout) mInflater.inflate(R.layout.item_list_row, parent, false);
+            layoutItem = (RelativeLayout) mInflater.inflate(R.layout.item_list_row, parent, false);
         } else {
-            layoutItem = (LinearLayout) convertView;
+            layoutItem = (RelativeLayout) convertView;
         }
 
-        //(2) : Récupération des TextView de notre layout
-        ImageView item_avatar = (ImageView) layoutItem.findViewById(R.id.item_avatar);
-        TextView item_name = (TextView)layoutItem.findViewById(R.id.item_name);
-        final Drawable avatar = Drawable.createFromPath(listItem.get(position).getPath());
+        ImageView item_avatar = layoutItem.findViewById(R.id.item_avatar);
+        TextView item_name = layoutItem.findViewById(R.id.item_name);
+        String name = listItem.get(position).getName();
+        name = name.replace(" ", "_");
+        name = name.toLowerCase();
+
+
+        Resources resources = context.getResources();
+        final int resourceId = resources.getIdentifier(name, "drawable", context.getPackageName());
+        Drawable drawable = resources.getDrawable(resourceId);
+
+
+        final Drawable avatar = drawable;
         item_avatar.setImageDrawable(avatar);
         item_name.setText(listItem.get(position).getName());
 
 
-        //On retourne l'item créé.
         return layoutItem;
     }
+
 }

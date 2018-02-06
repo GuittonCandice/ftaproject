@@ -26,9 +26,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class HomePageActivity extends AppCompatActivity implements View.OnClickListener {
-    /*EditText edit_login;
-    EditText edit_password;
-    */
 
     private GoogleSignInClient mGoogleSignInClient;
     @Override
@@ -40,17 +37,12 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         SignInButton signInButton = findViewById(R.id.sign_in_button);
         findViewById(R.id.sign_in_button).setOnClickListener(this);
 
-      //  edit_login = findViewById(R.id.edit_login);
-      //  edit_password = findViewById(R.id.edit_password);
 
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
 
 
 
         if (account != null){
-            System.out.println("account :"+ account.getDisplayName());
-            System.out.println("account :"+ account.getEmail());
-            System.out.println("account :"+ account.getFamilyName());
             launchIntent();
         }
 
@@ -66,10 +58,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
         if (requestCode == 1000) {
-            // The Task returned from this call is always completed, no need to attach
-            // a listener.
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
         }
@@ -78,17 +67,9 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-            System.out.println("account :"+ account.getDisplayName());
-            System.out.println("account :"+ account.getEmail());
-            System.out.println("account :"+ account.getFamilyName());
             launchIntent();
-            // Signed in successfully, show authenticated UI.
-            //updateUI(account);
         } catch (ApiException e) {
-            // The ApiException status code indicates the detailed failure reason.
-            // Please refer to the GoogleSignInStatusCodes class reference for more information.
             Log.w("Home", "signInResult:failed code=" + e.getStatusCode());
-            //updateUI(null);
         }
     }
 

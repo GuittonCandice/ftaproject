@@ -19,4 +19,9 @@
     <string name="googleconnect">S\'authentifier avec Google</string>
     <string name="select_options">Selectionner les options</string>
     <string name="user_profile">Profil Utilisateur</string>
+    <string name="logout">Se Déconnecter</string>
+    <string name="firstname">Prénom :</string>
+    <string name="lastname">Nom :</string>
+    <string name="email">Email :</string>
+    <string name="last_item">Dernier item scanné</string>
 </resources>

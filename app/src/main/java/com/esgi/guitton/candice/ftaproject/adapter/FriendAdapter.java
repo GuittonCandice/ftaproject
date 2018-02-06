@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.esgi.guitton.candice.ftaproject.Item;
@@ -54,18 +55,18 @@ public class FriendAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        LinearLayout layoutFriend;
+        RelativeLayout layoutFriend;
 
         if (convertView == null) {
-            layoutFriend = (LinearLayout) mInflater.inflate(R.layout.item_list_row, parent, false);
+            layoutFriend = (RelativeLayout) mInflater.inflate(R.layout.friend_list_row, parent, false);
         } else {
-            layoutFriend = (LinearLayout) convertView;
+            layoutFriend = (RelativeLayout) convertView;
         }
 
         TextView friend_lastname = (TextView) layoutFriend.findViewById(R.id.friend_lastname);
         TextView friend_firstname = (TextView)layoutFriend.findViewById(R.id.friend_firstname);
         friend_lastname.setText(listFriend.get(position).getLastname());
-        friend_firstname.setText(listFriend.get(position).getLastname());
+        friend_firstname.setText(listFriend.get(position).getFirstname());
 
 
 

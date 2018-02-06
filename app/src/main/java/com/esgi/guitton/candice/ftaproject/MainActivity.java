@@ -126,35 +126,18 @@ public class MainActivity extends AppCompatActivity {
                         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
                         if(account != null) {
 
-                            User user = new User(contact.name.first, contact.name.last, contact.emails[0].address,account.getId());
+                            String lastname = contact.name.last;
+                            String firstname = contact.name.first;
+                            String email = contact.emails[0].address;
+                            String id_user = account.getId();
+
+                            User user = new User(lastname, firstname, email, id_user);
+
                             DataBaseHelper dataBaseHelper = new DataBaseHelper(this, DataBaseHelper.DATABASE_NAME, DataBaseHelper.VERSION);
                             dataBaseHelper.addFriend(user);
 
                             friendFragment(getSupportFragmentManager());
-
                         }
-                        //statusMessage.setText("Nouvel utilisateur trouvé !");
-                        /*barcodeValue.setText(contact.name.first+" "+contact.name.last+"\n"+contact.emails[0].address+"\n" +
-                                contact.addresses[0].addressLines[0]+"\n"+contact.title+"\n"+contact.organization+"\n"+
-                                contact.phones[0].number+"\n"+contact.urls[0]);*/
-
-                        //create a new QRCode visite card with the field get from the QRCode scanned
-                        VCard user = new VCard(contact.name.first + " " + contact.name.last)
-                                .setEmail(contact.emails[0].address)
-                                .setAddress(contact.addresses[0].addressLines[0])
-                                .setTitle(contact.title)
-                                .setCompany(contact.organization)
-                                .setPhoneNumber(contact.phones[0].number)
-                                .setWebsite(contact.urls[0]);
-
-
-                        friendFragment(getSupportFragmentManager());
-
-
-                        Bitmap myBitmap = QRCode.from(user).bitmap();
-                        // myImageView.setImageBitmap(myBitmap);
-
-                        // Log.d(TAG, "The barcode is a new contact");
                     } else {
                         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
                         if(account != null) {

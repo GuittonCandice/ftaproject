@@ -1,20 +1,44 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#09C"
-    android:padding="@dimen/widget_margin">
+    xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        style="@style/TitleFragment"
+    android:background="@color/TitleBackgroundColor">
+
 
     <TextView
-        android:id="@+id/appwidget_text"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_margin="8dp"
-        android:background="#09C"
-        android:text="@string/appwidget_text"
-        android:textColor="#ffffff"
-        android:textSize="24sp"
-        android:textStyle="bold|italic" />
+        android:layout_alignTop="@+id/item_avatar"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/item_avatar"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:text="@string/last_item"
+        />
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/item_avatar"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/item_avatar"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:layout_below="@id/textView"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/item_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/item_name"
+            android:layout_below="@+id/item_name"
+            android:textColor="@android:color/black"
+            />
+
+    </RelativeLayout>
